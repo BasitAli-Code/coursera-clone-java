@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="What do you want to learn?"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#BEBEBE"
+            android:background="@drawable/search_background"
+            android:paddingHorizontal="16dp"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/search_white"
+            android:drawablePadding="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3A3A3A"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popular Searches"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            />
+
+        <!-- POPULAR SEARCH ITEMS -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• AI for everyone"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Machine learning"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Free"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Python"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Psychology"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Power BI"
+            android:textColor="#D9D9D9"
+            android:textSize="15sp"
+            android:paddingVertical="6dp"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Main App Theme -->
+    <style name="Theme.MyProject" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Remove purple status bar -->
+        <item name="android:statusBarColor">@color/black</item>
+
+        <!-- Make status bar icons white -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Optional: set navigation bar black too -->
+        <item name="android:navigationBarColor">@color/black</item>
+
+    </style>
+
+</resources>

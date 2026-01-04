@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course Details"
+            android:textSize="24sp"
+            android:textColor="#7CB8FF"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/courseImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ai"
+            android:contentDescription="Course Image"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/image_rounded"
+            android:clipToOutline="true" />
+
+        <TextView
+            android:id="@+id/courseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course Name"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/courseDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Description goes here. Explain what this course is about, what skills it teaches, and what the user can expect to learn."
+            android:textSize="14sp"
+            android:textColor="#BFBFBF"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/enrollButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enroll Now"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:backgroundTint="#7CB8FF"
+            android:textColor="#121212"
+            android:textStyle="bold"
+            android:padding="14dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

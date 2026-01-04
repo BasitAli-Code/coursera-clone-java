@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/centerContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/completionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="That feeling of completion is just around the corner"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            />
+
+        <TextView
+            android:id="@+id/coursesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your completed courses and certificates will be here"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="28dp"
+            android:paddingHorizontal="15dp"/>
+
+        <Button
+            android:id="@+id/startStudying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start learning now"
+            android:textAllCaps="false"
+            android:backgroundTint="#7CB8FF"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:paddingHorizontal="30dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:paddingVertical="14dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
