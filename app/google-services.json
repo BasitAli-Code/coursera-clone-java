@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "626644717150",
+    "project_id": "courera-clone",
+    "storage_bucket": "courera-clone.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626644717150:android:be3d8c3e9f3e9e5a0eaecf",
+        "android_client_info": {
+          "package_name": "com.example.myproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpGeW-SkJqQn1W-QVyz1hpoztjLdfbxis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
