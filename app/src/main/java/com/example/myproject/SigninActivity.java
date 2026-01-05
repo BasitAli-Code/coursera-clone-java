@@ -76,7 +76,7 @@ public class SigninActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(SigninActivity.this,
-                                        "Account created successfully",
+                                        "Account Created successfully",
                                         Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(SigninActivity.this, LoginActivity.class);

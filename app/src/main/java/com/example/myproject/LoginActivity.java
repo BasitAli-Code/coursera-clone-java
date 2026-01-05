@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                                 spEditor.apply();
 
                                 Toast.makeText(LoginActivity.this,
-                                        "Login Successfully",
+                                        "Login in account Successfully",
                                         Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
