@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="#000000">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/txtHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📷 Scan QR Code"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Scan Button -->
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Scan"
+        android:textAllCaps="false"
+        android:backgroundTint="#7CB8FF"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:paddingHorizontal="30dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:paddingVertical="14dp"/>
+
+    <!-- Scanned Result -->
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan result will appear here"
+        android:textSize="16sp"
+        android:layout_marginTop="28dp"/>
+</LinearLayout>

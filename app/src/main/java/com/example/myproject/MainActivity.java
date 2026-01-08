@@ -73,14 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
         loadFragment(new HomeFragment());
 
-        ImageButton settingBtn = findViewById(R.id.setting_button);
-        settingBtn.setOnClickListener(v -> loadFragment(new SettingFragment()));
+        ImageButton qrBtn = findViewById(R.id.qr_button);
+        qrBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+            startActivity(intent);
+        });
 
         ImageButton homeBtn = findViewById(R.id.home_button);
         homeBtn.setOnClickListener(v -> loadFragment(new HomeFragment()));
 
-        ImageButton searchBtn = findViewById(R.id.search_button);
-        searchBtn.setOnClickListener(v -> loadFragment(new SearchFragment()));
+        ImageButton settingBtn = findViewById(R.id.setting_button);
+        settingBtn.setOnClickListener(v -> loadFragment(new SettingFragment()));
     }
 
     private void loadFragment(Fragment fragment) {

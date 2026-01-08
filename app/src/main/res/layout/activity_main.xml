@@ -54,11 +54,11 @@
                 android:layout_marginBottom="5dp" />
 
             <ImageButton
-                android:id="@+id/search_button"
+                android:id="@+id/qr_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/baseline_search_24"
+                android:src="@drawable/baseline_qr_code_24"
                 android:backgroundTint="#FFFFFF"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Search"
