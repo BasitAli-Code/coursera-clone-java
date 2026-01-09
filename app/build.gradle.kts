@@ -17,6 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -41,9 +42,11 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.drawerlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.google.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation("com.google.zxing:core:3.5.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }

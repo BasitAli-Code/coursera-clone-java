@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), ProductActivity.class);
+                Intent intent = new Intent(getActivity(), AIActivity.class);
                 startActivity(intent);
 
             }

@@ -3,7 +3,6 @@ package com.example.myproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
             if (title.equals("Home")) {
                 loadFragment(new HomeFragment());
             } else if (title.equals("Courses")) {
-               Intent i = new Intent(MainActivity.this , ProductActivity.class);
-               startActivity(i);
+                Intent i = new Intent(MainActivity.this, ProductActivity.class);
+                startActivity(i);
             } else if (title.equals("Settings")) {
                 loadFragment(new SettingFragment());
             }
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-
+        // Default fragment
         loadFragment(new HomeFragment());
 
         ImageButton qrBtn = findViewById(R.id.qr_button);
@@ -82,8 +83,12 @@ public class MainActivity extends AppCompatActivity {
         ImageButton homeBtn = findViewById(R.id.home_button);
         homeBtn.setOnClickListener(v -> loadFragment(new HomeFragment()));
 
-        ImageButton settingBtn = findViewById(R.id.setting_button);
-        settingBtn.setOnClickListener(v -> loadFragment(new SettingFragment()));
+        ImageButton chatBtn = findViewById(R.id.chat_button);
+        chatBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void loadFragment(Fragment fragment) {
