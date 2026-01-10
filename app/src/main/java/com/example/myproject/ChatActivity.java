@@ -28,44 +28,60 @@ public class ChatActivity extends AppCompatActivity {
     private ImageButton btnSend;
     private LinearLayout chatContainer;
     private ScrollView chatScrollView;
+    private LinearLayout loadingLayout;
 
     private DatabaseReference chatRef;
     private String currentUserEmail;
+
+    // ensures animation runs only once
+    private boolean isInitialLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        // Bind UI elements
+        // Bind UI
         inputPrompt = findViewById(R.id.inputPrompt);
         btnSend = findViewById(R.id.btnSend);
         chatContainer = findViewById(R.id.chatContainer);
         chatScrollView = findViewById(R.id.chatScrollView);
+        loadingLayout = findViewById(R.id.loadingLayout);
+
+        // Show loading animation initially
+        loadingLayout.setVisibility(View.VISIBLE);
 
         // Get current user email
-        currentUserEmail = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+        currentUserEmail = Objects.requireNonNull(
+                FirebaseAuth.getInstance().getCurrentUser()
+        ).getEmail();
 
-        // Firebase reference to "groupChat" node
+        // Firebase reference
         chatRef = FirebaseDatabase.getInstance().getReference("groupChat");
 
-        // Listen for changes in Firebase in real-time
         chatRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                // Clear container first
+
+                // Clear messages ONLY when loading fresh data
                 chatContainer.removeAllViews();
 
-                // Loop through all messages
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     String message = snap.child("message").getValue(String.class);
                     String email = snap.child("email").getValue(String.class);
-
                     addMessageToContainer(message, email);
                 }
 
-                // Scroll to bottom whenever new message arrives
-                chatScrollView.post(() -> chatScrollView.fullScroll(View.FOCUS_DOWN));
+                // Hide loader ONLY ONCE
+                if (isInitialLoad) {
+                    loadingLayout.setVisibility(View.GONE);
+                    chatScrollView.setVisibility(View.VISIBLE);
+                    isInitialLoad = false;
+                }
+
+                chatScrollView.post(() ->
+                        chatScrollView.fullScroll(View.FOCUS_DOWN)
+                );
             }
 
             @Override
@@ -78,57 +94,60 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        // Send button click listener
+        // Send button
         btnSend.setOnClickListener(v -> {
             String msg = inputPrompt.getText().toString().trim();
-            if(msg.isEmpty()){
-                Toast.makeText(ChatActivity.this ,
-                        "Plz type any message before sending it" , Toast.LENGTH_SHORT).show();
+
+            if (msg.isEmpty()) {
+                Toast.makeText(
+                        ChatActivity.this,
+                        "Please type a message",
+                        Toast.LENGTH_SHORT
+                ).show();
+                return;
             }
-            if (!msg.isEmpty()) {
-                // Push message to Firebase
-                String key = chatRef.push().getKey();
-                assert key != null;
+
+            String key = chatRef.push().getKey();
+            if (key != null) {
                 chatRef.child(key).child("message").setValue(msg);
                 chatRef.child(key).child("email").setValue(currentUserEmail);
-
-                // Clear EditText
-                inputPrompt.setText("");
             }
+
+            inputPrompt.setText("");
         });
     }
 
-    // Add a single message to the chat container
+    // Adds chat bubbles
     private void addMessageToContainer(String message, String email) {
         if (message == null || email == null) return;
 
         TextView textView = new TextView(this);
         textView.setText(message);
         textView.setTextSize(16f);
-        textView.setPadding(20, 10, 20, 10);
+        textView.setPadding(20, 12, 20, 12);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
 
         int sideMargin = 20;
-        int topBottomMargin = 12;
+        int verticalMargin = 12;
 
         if (email.equals(currentUserEmail)) {
             params.gravity = Gravity.END;
+            params.setMargins(sideMargin, verticalMargin, 10, verticalMargin);
             textView.setBackgroundResource(R.drawable.bg_user_message);
             textView.setTextColor(Color.WHITE);
-            params.setMargins(sideMargin, topBottomMargin, 10, topBottomMargin);
         } else {
             params.gravity = Gravity.START;
+            params.setMargins(10, verticalMargin, sideMargin, verticalMargin);
             textView.setBackgroundResource(R.drawable.bg_ai_message);
             textView.setTextColor(Color.BLACK);
-            params.setMargins(10, topBottomMargin, sideMargin, topBottomMargin);
         }
 
         textView.setLayoutParams(params);
         chatContainer.addView(textView);
     }
-
 }
