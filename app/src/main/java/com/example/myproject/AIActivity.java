@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.example.myproject.ApiKey;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,7 +35,7 @@ public class AIActivity extends AppCompatActivity {
     private EditText inputPrompt;
     private ImageButton btnSend;
 
-    private final String API_KEY = "AIzaSyAElYRgp1Epm1Try5rjcoqFD-tXduCTK1g";
+    private final String API_KEY = ApiKey.getApiKey();
 
     // Typing indicator
     private TextView typingIndicator;
